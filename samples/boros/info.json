@@ -1,0 +1,18 @@
+{
+    "box_type":         "cmdr",
+
+    "texture_front":    "tx.png",
+    "texture_back":     "tx.png",
+    "texture_left":     "tx.png",
+    "texture_right":    "tx.png",
+
+    "title1_text":      "\\ue000\\ue003",
+    "title2_text":      "Boros",
+
+    "logo_mode":        "boros",
+
+    "col_base":         "#FAF0DF",
+    "col_light":        "#FAF0DF",
+    "col_logo":         "#F4DCB2"
+
+}

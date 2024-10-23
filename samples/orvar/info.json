@@ -1,0 +1,18 @@
+{
+    "box_type":         "cmdr",
+
+    "texture_front":    "tx.png",
+    "texture_back":     "tx.png",
+    "texture_left":     "tx.png",
+    "texture_right":    "tx.png",
+
+    "title1_text":      "\\ue001",
+    "title2_text":      "Orvar",
+
+    "logo_mode":        "U",
+
+    "col_base":         "#1C4DDB",
+    "col_light":        "#1C4DDB",
+    "col_logo":         "#6587EA"
+
+}

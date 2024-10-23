@@ -2,7 +2,7 @@
 // vars
 // =========================================================== //
 
-OBJ = "all";
+OBJ = "display";
 
 // "cmdr", "75" or "60"
 box_type = "cmdr";
@@ -16,23 +16,28 @@ in_cardnum      = (box_type == "cmdr" ? 97 : box_type == "75" ? 75 : 60);
 in_reserve      = (box_type == "cmdr" ? 16.5 : 0);
 no_reserve      = (box_type == "cmdr" ? false : true);
 
+col_base  = "#FAF0DF";
+col_light = "#FAF0DF";
+col_logo  = "#F4DCB2";
+
 // texture
-texture_enable  = false;
-texture_front   = "textures/test.png";
-texture_back    = "textures/grey.png";
-texture_left    = "textures/grey.png";
-texture_right   = "textures/grey.png";
+texture_enable  = true;
+texture_front   = "tx.png";
+texture_back    = "tx.png";
+texture_left    = "tx.png";
+texture_right   = "tx.png";
 
 // deckname, top of box
 title_enable    = true;
-title_size      = 10;
-title1_size     = 10;
+title_size      = 12;
+title1_size     = 12;
 title_2lines    = true;
-title_offset    = [0, 0];
-title1_text     = "\ue001\ue004";
-title2_text     = "Simic";
+title1_text     = "\ue000\ue003";
+title2_text     = "Boros";
+title1_offset    = [0, 0];
 title1_font     = "magic\\-font:style=font";
 title2_font     = "Matrix:style=Bold";
+title2_offset    = [0, 0];
 
 // front module, mana logo
 // logo_mode       = "";
@@ -42,7 +47,7 @@ title2_font     = "Matrix:style=Bold";
 // logo_mode       = "WU";
 // logo_mode       = "simic";
 
-logo_mode       = "simic";
+logo_mode       = "boros";
 
 logo_mana1_text = "\ue601";
 logo_mana1_off  = [0, 0];
@@ -56,6 +61,8 @@ logo_mana2_t2 = "\ue603";
 magnet_height = 2.4;
 magnet_diameter = 20.4;
 
+// card thickness is affected by this
+double_sleeve = false;
 
 // =========================================================== //
 // params
@@ -65,7 +72,7 @@ flip = (in_cardnum < 76 && no_reserve);
 
 card_x = 68;
 card_y = 94;
-card_z = 2/3;
+card_z = double_sleeve ? .75 : 2/3;
 cardsh = card_z * in_cardnum;
 
 engrave = 1.2;
@@ -286,6 +293,17 @@ module logo(negative=false)
     else if(logo_mode == "mana2")
         logo_mana_2(negative);
 
+    else if(logo_mode == "W")
+        logo_mana_1(negative, "\ue600");
+    else if(logo_mode == "U")
+        logo_mana_1(negative, "\ue601");
+    else if(logo_mode == "B")
+        logo_mana_1(negative, "\ue602");
+    else if(logo_mode == "R")
+        logo_mana_1(negative, "\ue603");
+    else if(logo_mode == "G")
+        logo_mana_1(negative, "\ue604");
+
     else if(logo_mode == "WU")
         logo_mana_2(negative, "\ue600", "\ue601", [-8.5, 10.5]);
     else if(logo_mode == "UB")
@@ -331,11 +349,16 @@ module logo(negative=false)
     else if(logo_mode == "simic")
         logo_mana_1(negative, "\ue915", [0, 0]);
 
+    else if(logo_mode == "abzan")
+        logo_mana_1(negative, "\ue916", [0, 0]);
+
     else if(logo_mode == "storm")
         logo_set_1(negative, "\ue95a", [0, 0]);
 
     else if(logo_mode == "blb")
         logo_set_1(negative, "\ue9cd", [0, 0]);
+
+
  }
 
 
@@ -348,6 +371,7 @@ module inner()
     difference()
     {
         // main box
+        color(col_light)
         cube([
             inner_x,
             inner_y,
@@ -364,6 +388,7 @@ module inner()
             ]);
         }
         
+        color(col_light)
         if(!no_reserve)
         {
             // hole for reserve
@@ -388,14 +413,14 @@ module inner()
         ])
         magnet();
         
-        color("black")
+        color(col_logo)
         if(title_enable)
         {
             // title - line 1 : mana symbols
             translate([
-                .5*inner_x - title_offset[0],
+                .5*inner_x - title1_offset[0],
                 inner_y - engrave,
-                .5*inner_z + (title_2lines? 1.25*title_size:.666*title_size) + title_offset[1]
+                .5*inner_z + (title_2lines? 1.25*title_size:.666*title_size) + title1_offset[1]
             ])
             rotate([90, 0, 180])
             linear_extrude(engrave + engrave_eps)
@@ -405,9 +430,9 @@ module inner()
             // title - line 2 : deck name
             if(title_2lines)
             translate([
-                .5*inner_x - title_offset[0],
+                .5*inner_x - title2_offset[0],
                 inner_y - engrave,
-                .5*inner_z - .333*title_size + title_offset[1]
+                .5*inner_z - .333*title_size + title2_offset[1]
             ])
             rotate([90, 0, 180])
             linear_extrude(engrave + engrave_eps)
@@ -415,13 +440,16 @@ module inner()
         }
         
         // sideholes
+        color(col_light)
         translate([-eps, 0, eps])
         insidecoche(inner_y-w_bot-w_top, w_side+2*eps);
 
+        color(col_light)
         if(!no_reserve)
             translate([cardsh1+w_side-eps, 0, eps])
             insidecoche(inner_y-w_bot-w_top, w_side+2*eps);
 
+        color(col_light)
         translate([
             (no_reserve?card_x+w_side:cardsh+w_side+cardsh1+w_side)-eps,
             0,
@@ -431,7 +459,7 @@ module inner()
         
     }
 
-    color("#cccccc")
+    color(col_light)
     difference()
     {
         union()
@@ -479,7 +507,7 @@ module inner()
 module outer()
 {
     
-    color("#aaaaaa")
+    color(col_base)
     difference()
     {
         // base outer box
@@ -561,6 +589,7 @@ module outer()
     };
     
     if(!debug_magnet)
+        color(col_logo)
         logo(false);
     
  }
@@ -570,17 +599,25 @@ module outer()
 // =========================================================== //
 
 if(OBJ == undef || OBJ == "all" || OBJ == "inner")
-//    translate([0, 121, 0])
-//    color("#eeddcc")
     translate([.5*(outer_x-inner_x), eps+(slide?slide_len:0)+w_bot+margin_z, .5*(outer_z-inner_z)])
     inner();
 
 if(OBJ == "outer")
-   translate([0, outer_z, 0])
-   translate([0, 0, w_top+margin_z])
-   rotate([90, 0, 0])
+    translate([0, outer_z, 0])
+    translate([0, 0, w_top+margin_z])
+    rotate([90, 0, 0])
     outer();
 else if(OBJ == undef || OBJ == "all")
     outer();
 
+if(OBJ == "display")
+{
+    translate([0,0,0])
+    rotate([90,0,0])
+    translate([.5*(outer_x-inner_x), eps++w_bot+margin_z, .5*(outer_z-inner_z) ])
+    inner();
+
+    rotate([90,0,0])
+    outer();
+}
 
