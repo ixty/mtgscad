@@ -10,10 +10,10 @@ OPENSCAD_DIR = 'd:\\softs\\openscad-2024.04'
 os.environ['path'] = os.environ['path'] + OPENSCAD_DIR + ';'
 
 PROCESS = [
-    lambda opts, name: [ '-D', 'OBJ="display"', '-o', opts.folder + '/' + 'render_' + name + '_disp.png',     '--camera', '7,17,17,62,0,37,495'  ],
-    lambda opts, name: [ '-D', 'OBJ="outer"',   '-o', opts.folder + '/' + 'render_' + name + '_outer.png',    '--camera', '38,46,46,76,0,30,401'  ],
-    lambda opts, name: [ '-D', 'OBJ="inner"',   '-o', opts.folder + '/' + 'render_' + name + '_inner.png',    '--camera', '70,55,30,78,0,230,401' ],
     lambda opts, name: [ '-D', 'OBJ="all"',     '-o', opts.folder + '/' + 'render_' + name + '_all.png',      '--camera', '35,80,39,62,0,219,401' ],
+    lambda opts, name: [ '-D', 'OBJ="inner"',   '-o', opts.folder + '/' + 'render_' + name + '_inner.png',    '--camera', '70,55,30,78,0,230,401' ],
+    lambda opts, name: [ '-D', 'OBJ="outer"',   '-o', opts.folder + '/' + 'render_' + name + '_outer.png',    '--camera', '38,46,46,76,0,30,401'  ],
+    lambda opts, name: [ '-D', 'OBJ="display"', '-o', opts.folder + '/' + 'render_' + name + '_disp.png',     '--camera', '7,17,17,62,0,37,495'  ],
     lambda opts, name: [ '-D', 'OBJ="inner"',   '-o', opts.folder + '/' + 'box_' + name + '_inner.stl' ],
     lambda opts, name: [ '-D', 'OBJ="outer"',   '-o', opts.folder + '/' + 'box_' + name + '_outer.stl' ],
 ]
