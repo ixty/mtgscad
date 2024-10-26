@@ -1,0 +1,28 @@
+{
+    "box_type":         "cmdr",
+
+    "texture_front":    "tx2f.png",
+    "texture_back":     "tx2.png",
+    "texture_left":     "tx2.png",
+    "texture_right":    "tx2.png",
+
+    "in_reserve":       25,
+
+    "title1_text":      "Friendship",
+    "title2_text":      "Is Magic",
+
+    "title1_size":      10,
+    "title2_size":      10,
+    "title1_offset":    [0, 0],
+
+    "title1_font":      "Matrix:style=Bold",
+    "title2_font":      "Matrix:style=Bold",
+
+
+    "logo_mode":        "",
+
+    "col_base":         "#F89CDB",
+    "col_light":        "#F89CDB",
+    "col_logo":         "#F89CDB"
+
+}

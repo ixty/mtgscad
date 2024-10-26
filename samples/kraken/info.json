@@ -1,0 +1,18 @@
+{
+    "box_type":         "cmdr",
+
+    "texture_front":    "txf.png",
+    "texture_back":     "tx.png",
+    "texture_left":     "tx.png",
+    "texture_right":    "tx.png",
+
+    "title1_text":      "\\ue001\\ue002",
+    "title2_text":      "Dimir",
+
+    "logo_mode":        "",
+
+    "col_base":         "#112244",
+    "col_light":        "#112244",
+    "col_logo":         "#222222"
+
+}

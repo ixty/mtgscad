@@ -1,0 +1,21 @@
+{
+    "box_type":         "cmdr",
+
+    "texture_front":    "tx3.png",
+    "texture_back":     "tx4.png",
+    "texture_left":     "tx4.png",
+    "texture_right":    "tx4.png",
+
+    "title1_text":      "\\ue001\\ue002",
+    "title2_text":      "Horror",
+    "title1_size":      10,
+    "title2_size":      8,
+    "title1_offset":    [0, 4],
+
+    "logo_mode":        "",
+
+    "col_base":         "#112244",
+    "col_light":        "#112244",
+    "col_logo":         "#222222"
+
+}

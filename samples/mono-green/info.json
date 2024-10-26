@@ -1,0 +1,19 @@
+{
+    "box_type":         "75",
+
+    "texture_front":    "tx.png",
+    "texture_back":     "tx.png",
+    "texture_left":     "tx.png",
+    "texture_right":    "tx.png",
+
+    "title1_text":      "\\ue004",
+    "title1_size":      16,
+    "title2_size":      16,
+    "title_2lines":     false,
+
+    "logo_mode":        "G",
+
+    "col_base":         "#358D46",
+    "col_light":        "#358D46",
+    "col_logo":         "#2D723A"
+}

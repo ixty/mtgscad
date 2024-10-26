@@ -1,0 +1,22 @@
+{
+    "box_type":         "cmdr",
+
+    "texture_front":    "tx4.png",
+    "texture_back":     "tx1.png",
+    "texture_left":     "tx3.png",
+    "texture_right":    "tx2.png",
+
+    "title1_text":      "\\ue000",
+    "title2_text":      "Angels",
+
+    "title1_size":      12,
+    "title2_size":      10,
+    "title1_offset":    [0, 2],
+
+    "logo_mode":        "",
+
+    "col_base":         "#FAF0DF",
+    "col_light":        "#FAF0DF",
+    "col_logo":         "#F4DCB2"
+
+}

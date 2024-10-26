@@ -1,0 +1,19 @@
+{
+    "box_type":         "75",
+
+    "texture_front":    "tx.png",
+    "texture_back":     "tx.png",
+    "texture_left":     "tx.png",
+    "texture_right":    "tx.png",
+
+    "title1_text":      "\\ue001",
+    "title1_size":      16,
+    "title2_size":      16,
+    "title_2lines":     false,
+
+    "logo_mode":        "U",
+
+    "col_base":         "#2992EB",
+    "col_light":        "#2992EB",
+    "col_logo":         "#267DC6"
+}

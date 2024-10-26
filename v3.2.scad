@@ -29,8 +29,8 @@ texture_right   = "tx.png";
 
 // deckname, top of box
 title_enable    = true;
-title_size      = 12;
 title1_size     = 12;
+title2_size     = 12;
 title_2lines    = true;
 title1_text     = "\ue000\ue003";
 title2_text     = "Boros";
@@ -294,15 +294,15 @@ module logo(negative=false)
         logo_mana_2(negative);
 
     else if(logo_mode == "W")
-        logo_mana_1(negative, "\ue600");
+        logo_mana_1(negative, "\ue600", [.5, 0]);
     else if(logo_mode == "U")
-        logo_mana_1(negative, "\ue601");
+        logo_mana_1(negative, "\ue601", [.1, .1]);
     else if(logo_mode == "B")
-        logo_mana_1(negative, "\ue602");
+        logo_mana_1(negative, "\ue602", [.25, 0]);
     else if(logo_mode == "R")
-        logo_mana_1(negative, "\ue603");
+        logo_mana_1(negative, "\ue603", [.25, .25]);
     else if(logo_mode == "G")
-        logo_mana_1(negative, "\ue604");
+        logo_mana_1(negative, "\ue604", [.25, 0]);
 
     else if(logo_mode == "WU")
         logo_mana_2(negative, "\ue600", "\ue601", [-8.5, 10.5]);
@@ -420,7 +420,7 @@ module inner()
             translate([
                 .5*inner_x - title1_offset[0],
                 inner_y - engrave,
-                .5*inner_z + (title_2lines? 1.25*title_size:.666*title_size) + title1_offset[1]
+                .5*inner_z + (title_2lines? 1.25*title2_size:.666*title2_size) + title1_offset[1]
             ])
             rotate([90, 0, 180])
             linear_extrude(engrave + engrave_eps)
@@ -432,11 +432,11 @@ module inner()
             translate([
                 .5*inner_x - title2_offset[0],
                 inner_y - engrave,
-                .5*inner_z - .333*title_size + title2_offset[1]
+                .5*inner_z - .333*title2_size + title2_offset[1]
             ])
             rotate([90, 0, 180])
             linear_extrude(engrave + engrave_eps)
-            text(title2_text, size=title_size, halign="center", valign="top", font=title2_font);
+            text(title2_text, size=title2_size, halign="center", valign="top", font=title2_font);
         }
         
         // sideholes

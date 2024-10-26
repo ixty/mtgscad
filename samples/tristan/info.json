@@ -1,0 +1,21 @@
+{
+    "box_type":         "cmdr",
+
+    "texture_front":    "tx.png",
+    "texture_back":     "tx.png",
+    "texture_left":     "tx.png",
+    "texture_right":    "tx.png",
+
+    "title1_text":      "\\ue000\\ue001\\ue002\\ue003\\ue004",
+    "title2_text":      "Rainbow",
+    "title1_size":      8,
+    "title2_size":      10,
+    "title1_offset":    [0, 0],
+
+    "logo_mode":        "WUBRG",
+
+    "col_base":         "#FBF312",
+    "col_light":        "#FBF312",
+    "col_logo":         "#FBB612"
+
+}
