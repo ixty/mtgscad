@@ -1,0 +1,25 @@
+{
+    "box_type":         "cmdr",
+
+    "texture_front":    "tx.png",
+    "texture_back":     "tx.png",
+    "texture_left":     "tx.png",
+    "texture_right":    "tx.png",
+
+    "title1_text":      "\\ue004\\ue004\\ue004",
+    "title2_text":      "Kogla",
+
+    "title1_size":      11,
+    "title2_size":      12,
+    "title1_offset":    [0, -1],
+    "title2_offset":    [0,  1],
+
+
+    "logo_set1_text":   "\\ue962",
+    "logo_mode":        "G",
+
+    "col_base":         "#276A09",
+    "col_light":        "#276A09",
+    "col_logo":         "#44A31A"
+
+}

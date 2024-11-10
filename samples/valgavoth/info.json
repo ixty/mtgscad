@@ -1,0 +1,21 @@
+{
+    "box_type":         "cmdr",
+
+    "texture_front":    "txf2.png",
+    "texture_back":     "back.png",
+    "texture_left":     "left.png",
+    "texture_right":    "right.png",
+
+    "title1_text":      "\\ue000\\ue002\\ue004",
+    "title2_text":      "Rehabzan",
+    "title1_size":      12,
+    "title2_size":      9,
+    "title1_offset":    [0, 4],
+
+    "logo_mode":        "",
+
+    "col_base":         "#4B4D48",
+    "col_light":        "#4B4D48",
+    "col_logo":         "#0A0A0A"
+
+}

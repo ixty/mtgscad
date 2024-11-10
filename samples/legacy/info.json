@@ -1,0 +1,21 @@
+{
+    "box_type":         "75",
+
+    "texture_front":    "txf.png",
+    "texture_back":     "txb.png",
+    "texture_left":     "",
+    "texture_right":    "",
+
+    "title1_text":      "\\ue001\\ue002",
+    "title2_text":      "Legacy",
+    "title1_size":      12,
+    "title2_size":      9,
+    "title1_offset":    [0, 4],
+
+    "logo_mode":        "",
+
+    "col_base":         "#4B4D48",
+    "col_light":        "#4B4D48",
+    "col_logo":         "#0A0A0A"
+
+}

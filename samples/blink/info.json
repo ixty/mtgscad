@@ -1,0 +1,20 @@
+{
+    "box_type":         "cmdr",
+
+    "texture_enable":   false,
+
+    "title1_text":      "For Qualif",
+    "title2_text":      "Use Only",
+    "title1_size":      10,
+    "title2_size":      10,
+    "title1_offset":    [0, 0],
+    "title1_font":      "Matrix:style=Bold",
+    "title2_font":      "Matrix:style=Bold",
+
+    "logo_mode":        "WU",
+
+    "col_base":         "#2DC4F6",
+    "col_light":        "#2DC4F6",
+    "col_logo":         "#38A0C2"
+
+}
