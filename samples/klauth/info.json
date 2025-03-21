@@ -1,0 +1,22 @@
+{
+    "box_type":         "cmdr",
+
+    "texture_front":    "txf2.png",
+    "texture_back":     "txf.png",
+    "texture_left":     "txs.png",
+    "texture_right":    "txs2.png",
+
+    "title1_text":      "\\ue003\\ue004",
+    "title2_text":      "Klauth",
+    "title1_size":      12,
+    "title2_size":      9,
+    "title1_offset":    [0, 4],
+
+    "logo_mode":        "",
+    "logo_surf_tx":     "3col.png",
+
+    "col_base":         "#AB4B25",
+    "col_light":        "#AB4B25",
+    "col_logo":         "#8C4124"
+
+}

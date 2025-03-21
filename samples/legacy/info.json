@@ -1,16 +1,18 @@
 {
     "box_type":         "75",
 
-    "texture_front":    "txf.png",
+    "texture_front":    "txb.png",
     "texture_back":     "txb.png",
     "texture_left":     "",
     "texture_right":    "",
 
-    "title1_text":      "\\ue001\\ue002",
+    "title1_text":      "\\ue623",
     "title2_text":      "Legacy",
-    "title1_size":      12,
-    "title2_size":      9,
+    "title1_size":      14,
+    "title2_size":      10,
     "title1_offset":    [0, 4],
+
+    "title1_font":      "mana:style=Regular",
 
     "logo_mode":        "",
 

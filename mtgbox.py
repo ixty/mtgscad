@@ -5,9 +5,12 @@ import sys
 import argparse
 import subprocess
 
-
-OPENSCAD_DIR = 'd:\\softs\\openscad-2024.04'
-os.environ['path'] = os.environ['path'] + OPENSCAD_DIR + ';'
+if os.name == 'nt':
+    APP_PATH = 'd:\\softs\\openscad-2024.04\\openscad.exe'
+    EXTRA = [ '--enable=manifold' ]
+else:
+    APP_PATH = '/home/marty/softs/openscad.appimage'
+    EXTRA = ['--backend', 'manifold' ]
 
 PROCESS = [
     lambda opts, name: [ '-D', 'OBJ="display"', '-o', opts.folder + '/' + 'render_' + name + '_disp.png',     '--camera', '7,17,17,62,0,37,495'  ],
@@ -19,6 +22,9 @@ PROCESS = [
 ]
 
 def do(opts):
+    while opts.folder.endswith('/') or opts.folder.endswith('\\'):
+        opts.folder = opts.folder[:-1]
+
     print(f'> target folder {opts.folder}')
 
     with open(os.path.join(opts.folder, 'info.json')) as f:
@@ -30,18 +36,17 @@ def do(opts):
 
     for args in PROCESS:
         cmdline = [
-            'openscad.exe',
-            '--enable=manifold',
+            APP_PATH,
             '--colorscheme', 'DeepOcean',
             '--imgsize', '1024,1024',
             '-D', 'texture_enable=true',
-        ]
+        ] + EXTRA
         cmdline += args(opts, name)
 
         for k,v in info.items():
             cmdline.append('-D')
 
-            if os.path.exists(opts.folder + '/' + str(v)):
+            if str(v) and os.path.exists(opts.folder + '/' + str(v)):
                 v = opts.folder + '/' + v
 
             if isinstance(v, int):
@@ -54,7 +59,7 @@ def do(opts):
         cmdline.append('v3.2.scad')
 
         print('calling: ', cmdline)
-        subprocess.check_call(cmdline)
+        subprocess.check_call(cmdline, executable=APP_PATH)
 
     print('> done')
 

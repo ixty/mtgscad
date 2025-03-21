@@ -1,0 +1,22 @@
+{
+    "box_type":         "cmdr",
+
+    "texture_front":    "tx2.png",
+    "texture_back":     "tx2.png",
+    "texture_left":     "tx2.png",
+    "texture_right":    "tx2.png",
+
+    "title1_text":      "\\ue003",
+    "title2_text":      "Magda",
+
+    "title1_size":      10,
+    "title2_size":      10,
+    "title1_offset":    [0, 0],
+
+    "logo_mode":        "",
+
+    "col_base":         "#F6A82D",
+    "col_light":        "#F6A82D",
+    "col_logo":         "#F6612D"
+
+}

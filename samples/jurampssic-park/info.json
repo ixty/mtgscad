@@ -1,0 +1,24 @@
+{
+    "box_type":         "cmdr",
+
+    "texture_front":    "txf.png",
+    "texture_back":     "tx.png",
+    "texture_left":     "tx.png",
+    "texture_right":    "tx.png",
+
+    "title1_text":      "Welcome to",
+    "title2_text":      "JuRampssic Park",
+    "title1_font":      "Matrix:style=Bold",
+    "title2_font":      "Matrix:style=Bold",
+    "title1_size":      7,
+    "title2_size":      7,
+    "title1_offset":    [0, 4],
+
+    "in_reserve":       20,
+    "logo_mode":        "",
+
+    "col_base":         "#006847",
+    "col_light":        "#006847",
+    "col_logo":         "#ce1126"
+
+}

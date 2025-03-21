@@ -1,0 +1,20 @@
+{
+    "box_type":         "cmdr",
+
+    "texture_front":    "tx.png",
+    "texture_back":     "tx.png",
+    "texture_left":     "tx_side.png",
+    "texture_right":    "tx_side.png",
+
+    "title1_text":      "Vale",
+    "title2_text":      "Decem",
+    "title1_size":      12,
+    "title2_size":      12,
+    "title_2lines":     true,
+
+    "logo_mode":        "",
+
+    "col_base":         "#00203c",
+    "col_light":        "#00203c",
+    "col_logo":         "#003b6f"
+}

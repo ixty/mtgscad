@@ -1,0 +1,22 @@
+{
+    "box_type":         "cmdr",
+
+    "texture_front":    "tx.png",
+    "texture_back":     "tx.png",
+    "texture_left":     "tx.png",
+    "texture_right":    "tx.png",
+
+    "title1_text":      "\\ue000\\ue001",
+    "title2_text":      "Brago",
+
+    "title1_size":      10,
+    "title2_size":      10,
+    "title1_offset":    [0, 0],
+
+    "logo_mode":        "WU",
+
+    "col_base":         "#2DC4F6",
+    "col_light":        "#2DC4F6",
+    "col_logo":         "#38A0C2"
+
+}

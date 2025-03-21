@@ -21,11 +21,14 @@ col_light = "#FAF0DF";
 col_logo  = "#F4DCB2";
 
 // texture
-texture_enable  = true;
-texture_front   = "tx.png";
-texture_back    = "tx.png";
-texture_left    = "tx.png";
-texture_right   = "tx.png";
+texture_enable  = false;
+texture_front   = "samples/klauth/txf.png";
+texture_back    = "samples/klauth/txf.png";
+texture_left    = "samples/klauth/txs.png";
+texture_right   = "samples/klauth/txs.png";
+// texture sizes, cmdr => front[w89 x h106] side[w78 x h106] => 430px x 512px | 376px x 512px
+// texture sizes, 75   => front[w78 x h106] side[w59 x h106]
+
 
 // deckname, top of box
 title_enable    = true;
@@ -47,7 +50,7 @@ title2_offset    = [0, 0];
 // logo_mode       = "WU";
 // logo_mode       = "simic";
 
-logo_mode       = "boros";
+logo_mode       = "surface";
 
 logo_mana1_text = "\ue601";
 logo_mana1_off  = [0, 0];
@@ -56,6 +59,8 @@ logo_set1_off   = [-1, -1];
 
 logo_mana2_t1 = "\ue601";
 logo_mana2_t2 = "\ue603";
+
+logo_surf_tx = "samples/klauth/klauth-head-bw2.png";
 
 // magnet dims
 magnet_height = 2.4;
@@ -223,7 +228,8 @@ module logo_text_1( text, size, radius, slant, off, font, negative)
     text(text, size=size, halign="center", valign="center", font=font);
 }
 
-module logo_mana_1(negative, text=logo_mana1_text, off=logo_set1_off) {
+module logo_mana_1(negative, text=logo_mana1_text, off=logo_set1_off)
+{
     if(negative)
         logo_hollow(22);
     else
@@ -283,6 +289,55 @@ module logo_mana_5(negative, fontsz=11) {
     }
 }
 
+module logo_surf(negative, realz=false)
+{
+    if(negative)
+    {
+
+            translate([.5*outer_x, .5*outer_y, outer_z - (engrave - engrave_eps) -.017])
+            cylinder(h=engrave + engrave_eps, r=21, $fn=128);    
+
+            translate([.4*outer_x, .5*outer_y, outer_z - 1.5*(engrave) - engrave_eps])
+            cylinder(h=.5*engrave + engrave_eps, r=3, $fn=64);
+
+            translate([.6*outer_x, .5*outer_y, outer_z - 1.5*(engrave) - engrave_eps])
+            cylinder(h=.5*engrave + engrave_eps, r=3, $fn=64);
+
+
+    }
+    else if(!realz)
+    {
+        logo_circle(22);
+    }
+    else
+    {
+        translate([0, 0, 0 ])
+        {
+        
+            translate([.5*outer_x, .5*outer_y, outer_z - (engrave - engrave_eps)])
+            cylinder(h=engrave + engrave_eps, r=21, $fn=64);    
+
+            translate([.4*outer_x, .5*outer_y, outer_z - 1.5*(engrave) - engrave_eps])
+            cylinder(h=.5*engrave + engrave_eps, r=2.8, $fn=64);
+
+            translate([.6*outer_x, .5*outer_y, outer_z - 1.5*(engrave) - engrave_eps])
+            cylinder(h=.5*engrave + engrave_eps, r=2.8, $fn=64);
+        
+            difference()
+            {
+                translate([.5*outer_x, .5*outer_y, outer_z-.17])
+                translate([-1.5, -1, 0])
+                scale([1, 1, 1])
+                resize([33, 33, 1])
+                surface(logo_surf_tx, center=true);
+                
+                translate([.5*outer_x, .5*outer_y, outer_z - (engrave - engrave_eps)])
+                cylinder(h=engrave + 2*engrave_eps, r=40, $fn=64);
+
+            }
+        }
+    }
+}
 
 module logo(negative=false)
 {
@@ -292,6 +347,8 @@ module logo(negative=false)
         logo_set_1(negative);
     else if(logo_mode == "mana2")
         logo_mana_2(negative);
+    else if(logo_mode == "surface")
+        logo_surf(negative);
 
     else if(logo_mode == "W")
         logo_mana_1(negative, "\ue600", [.5, 0]);
@@ -583,9 +640,10 @@ module outer()
             resize([outer_z+2*eps, outer_y+2*eps, engrave])
             surface(texture_right, invert=true);
 
-            // hole for logo
-            logo(true);
         }
+
+        // hole for logo
+        logo(true);
     };
     
     if(!debug_magnet)
@@ -607,9 +665,14 @@ if(OBJ == "outer")
     translate([0, 0, w_top+margin_z])
     rotate([90, 0, 0])
     outer();
+
+if(OBJ == "display" && logo_mode == "surface")
+    logo_surf(false, true);
+
 else if(OBJ == undef || OBJ == "all")
     outer();
 
+    
 if(OBJ == "display")
 {
     translate([0,0,0])

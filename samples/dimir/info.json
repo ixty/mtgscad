@@ -1,0 +1,17 @@
+{
+    "box_type":         "75",
+
+    "texture_front":    "tx2.png",
+    "texture_back":     "tx2.png",
+    "texture_left":     "tx2.png",
+    "texture_right":    "tx2.png",
+
+    "title1_text":      "\\ue001\\ue002",
+    "title2_text":      "Dimir",
+
+    "logo_mode":        "dimir",
+
+    "col_base":         "#154F83",
+    "col_light":        "#154F83",
+    "col_logo":         "#183E61"
+}
