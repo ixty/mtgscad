@@ -1,6 +1,7 @@
 {
     "box_type":         "75",
 
+    "texture_enable":   false,
     "texture_front":    "tx.png",
     "texture_back":     "tx.png",
     "texture_left":     "tx.png",

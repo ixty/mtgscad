@@ -5,7 +5,7 @@
 OBJ = "display";
 
 // "cmdr", "75" or "60"
-box_type = "cmdr";
+box_type = "75";
 
 // display
 slide       = true;
@@ -32,10 +32,10 @@ texture_right   = "samples/klauth/txs.png";
 
 // deckname, top of box
 title_enable    = true;
-title1_size     = 12;
-title2_size     = 12;
+title1_size     = 10;
+title2_size     = 10;
 title_2lines    = true;
-title1_text     = "\ue000\ue003";
+title1_text     = "\ue001";
 title2_text     = "Boros";
 title1_offset    = [0, 0];
 title1_font     = "magic\\-font:style=font";
@@ -50,7 +50,7 @@ title2_offset    = [0, 0];
 // logo_mode       = "WU";
 // logo_mode       = "simic";
 
-logo_mode       = "surface";
+logo_mode       = "U";
 
 logo_mana1_text = "\ue601";
 logo_mana1_off  = [0, 0];
@@ -213,7 +213,7 @@ module logo_hollow(radius)
 }
 module logo_circle(radius)
 {
-    translate([.5*outer_x, .5*outer_y, outer_z - (texture_enable?engrave-engrave_eps:0)])
+    translate([.5*outer_x, .5*outer_y, outer_z - engrave-engrave_eps])
     rotate_extrude(convexity=10, $fn=64)
     translate([radius, 0, 0])
     circle(r=engrave, $fn=64);
@@ -221,7 +221,7 @@ module logo_circle(radius)
 
 module logo_text_1( text, size, radius, slant, off, font, negative)
 {
-    translate([.5*outer_x, .5*outer_y, outer_z - (texture_enable?engrave-engrave_eps:0)])
+    translate([.5*outer_x, .5*outer_y, outer_z - engrave-engrave_eps])
     linear_extrude(.75*engrave + engrave_eps, scale=slant)
     offset(r=.02, chamfer=true)
     translate([off[0], off[1], 0])

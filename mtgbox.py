@@ -51,6 +51,8 @@ def do(opts):
 
             if isinstance(v, int):
                 cmdline.append('%s=%d' % (k, v))
+            elif isinstance(v, float):
+                cmdline.append('%s=%f' % (k, v))
             elif isinstance(v, list):
                 cmdline.append('%s=%r' % (k, v))
             else:

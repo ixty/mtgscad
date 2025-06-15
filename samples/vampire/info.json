@@ -1,0 +1,23 @@
+{
+    "box_type":         "cmdr",
+
+    "texture_front":    "tx1.png",
+    "texture_back":     "tx1.png",
+    "texture_left":     "tx2.png",
+    "texture_right":    "tx2.png",
+
+    "title1_text":      "Vampire",
+    "title2_text":      "Boogie Night",
+    "title1_size":      10,
+    "title2_size":      10,
+    "title1_font":      "Matrix:style=Bold",
+    "title2_font":      "Matrix:style=Bold",
+
+    "in_reserve":       20,
+    "logo_mode":        "",
+
+    "col_base":         "#adb0b3",
+    "col_light":        "#adb0b3",
+    "col_logo":         "#757778"
+
+}
