@@ -2,45 +2,59 @@
 // vars
 // =========================================================== //
 
-OBJ = "display";
+OBJ = "all";
 
-// "cmdr", "75" or "60"
-box_type = "75";
+// "cmdr", "80", "75" or "60"
+box_type = "80";
 
 // display
 slide       = true;
 slide_len   = 20;
 
 // size
-in_cardnum      = (box_type == "cmdr" ? 97 : box_type == "75" ? 75 : 60);
-in_reserve      = (box_type == "cmdr" ? 16.5 : 0);
+in_cardnum      = (box_type == "cmdr" ? 100 : box_type == "75" ? 75 : box_type == "80" ? 80 : 60);
+in_reserve      = (box_type == "cmdr" ? 18 : 0);
 no_reserve      = (box_type == "cmdr" ? false : true);
 
-col_base  = "#FAF0DF";
+col_base  = "#F4DCB2";
 col_light = "#FAF0DF";
 col_logo  = "#F4DCB2";
 
 // texture
-texture_enable  = false;
-texture_front   = "samples/klauth/txf.png";
-texture_back    = "samples/klauth/txf.png";
-texture_left    = "samples/klauth/txs.png";
-texture_right   = "samples/klauth/txs.png";
+texture_enable  = true;
+texture_front   = "samples/modern/txf.png";
+texture_back    = "samples/modern/txb.png";
+texture_left    = "samples/modern/txs.png";
+texture_right   = "samples/modern/txs.png";
 // texture sizes, cmdr => front[w89 x h106] side[w78 x h106] => 430px x 512px | 376px x 512px
 // texture sizes, 75   => front[w78 x h106] side[w59 x h106]
 
 
 // deckname, top of box
+//title_enable    = true;
+//title1_size     = 10;
+//title2_size     = 9;
+//title_2lines    = true;
+//title1_text     = "\ue000\ue001\ue002";
+//title2_text     = "Master of Keys";
+//title1_offset    = [0, 0];
+//title1_font     = "magic\\-font:style=font";
+//title2_font     = "Matrix:style=Bold";
+//title2_offset    = [0, 0];
+
+
+// debuggging
 title_enable    = true;
-title1_size     = 10;
+title1_size     = 18;
 title2_size     = 10;
-title_2lines    = true;
-title1_text     = "\ue001";
-title2_text     = "Boros";
-title1_offset    = [0, 0];
-title1_font     = "magic\\-font:style=font";
+title_2lines    = false;
+title1_text     = "\ue623";
+title2_text     = "";
+title1_offset    = [0, 4];
+title1_font     = "mana:style=Regular";
 title2_font     = "Matrix:style=Bold";
 title2_offset    = [0, 0];
+
 
 // front module, mana logo
 // logo_mode       = "";
@@ -50,7 +64,7 @@ title2_offset    = [0, 0];
 // logo_mode       = "WU";
 // logo_mode       = "simic";
 
-logo_mode       = "U";
+logo_mode       = "";
 
 logo_mana1_text = "\ue601";
 logo_mana1_off  = [0, 0];
@@ -73,7 +87,7 @@ double_sleeve = false;
 // params
 // =========================================================== //
 
-flip = (in_cardnum < 76 && no_reserve);
+flip = (in_cardnum < 81 && no_reserve);
 
 card_x = 68;
 card_y = 94;
@@ -209,7 +223,7 @@ module insidecoche(height, outeroff=0, inner=true)
 module logo_hollow(radius)
 {
     translate([.5*outer_x, .5*outer_y, outer_z - (engrave - engrave_eps)])
-    cylinder(h=engrave + engrave_eps, r=radius, $fn=64);    
+    cylinder(h=engrave + engrave_eps, r=radius, $fn=64);
 }
 module logo_circle(radius)
 {
@@ -269,13 +283,13 @@ module logo_mana_5(negative, fontsz=11) {
     else
     {
         d = 17;
-    
+
         translate([.0*d, 1.0*d, 0])
         logo_text_1("\ue600",fontsz+1,22,.92,[0,0],"Mana:style=Regular",negative);
 
         translate([.95*d, 0.31*d, 0])
         logo_text_1("\ue601",fontsz+.5,22,.92,[0,0],"Mana:style=Regular",negative);
-        
+
         translate([.59*d, -.81*d, 0])
         logo_text_1("\ue602",fontsz-.5,22,.92,[0,0],"Mana:style=Regular",negative);
 
@@ -295,7 +309,7 @@ module logo_surf(negative, realz=false)
     {
 
             translate([.5*outer_x, .5*outer_y, outer_z - (engrave - engrave_eps) -.017])
-            cylinder(h=engrave + engrave_eps, r=21, $fn=128);    
+            cylinder(h=engrave + engrave_eps, r=21, $fn=128);
 
             translate([.4*outer_x, .5*outer_y, outer_z - 1.5*(engrave) - engrave_eps])
             cylinder(h=.5*engrave + engrave_eps, r=3, $fn=64);
@@ -313,16 +327,16 @@ module logo_surf(negative, realz=false)
     {
         translate([0, 0, 0 ])
         {
-        
+
             translate([.5*outer_x, .5*outer_y, outer_z - (engrave - engrave_eps)])
-            cylinder(h=engrave + engrave_eps, r=21, $fn=64);    
+            cylinder(h=engrave + engrave_eps, r=21, $fn=64);
 
             translate([.4*outer_x, .5*outer_y, outer_z - 1.5*(engrave) - engrave_eps])
             cylinder(h=.5*engrave + engrave_eps, r=2.8, $fn=64);
 
             translate([.6*outer_x, .5*outer_y, outer_z - 1.5*(engrave) - engrave_eps])
             cylinder(h=.5*engrave + engrave_eps, r=2.8, $fn=64);
-        
+
             difference()
             {
                 translate([.5*outer_x, .5*outer_y, outer_z-.17])
@@ -330,7 +344,7 @@ module logo_surf(negative, realz=false)
                 scale([1, 1, 1])
                 resize([33, 33, 1])
                 surface(logo_surf_tx, center=true);
-                
+
                 translate([.5*outer_x, .5*outer_y, outer_z - (engrave - engrave_eps)])
                 cylinder(h=engrave + 2*engrave_eps, r=40, $fn=64);
 
@@ -428,15 +442,16 @@ module inner()
     difference()
     {
         // main box
-        color(col_light)
+        color(col_base)
         cube([
             inner_x,
             inner_y,
             inner_z
         ]);
-        
+
         if(debug_magnet)
         {
+            color(col_base)
             translate([-eps, -eps, debug_height - w_side - margin_xy])
             cube([
                 inner_x+2*eps,
@@ -444,15 +459,15 @@ module inner()
                 inner_z+2*eps
             ]);
         }
-        
-        color(col_light)
+
+        color(col_base)
         if(!no_reserve)
         {
             // hole for reserve
             translate([w_side, w_bot, w_back])
             cube([cardsh1, card_y, card_x+eps]);
-        
-            // hole for cards        
+
+            // hole for cards
             translate([w_side + cardsh1 + w_side, w_bot, w_back])
             cube([cardsh, card_y, card_x+eps]);
         }
@@ -464,13 +479,14 @@ module inner()
         }
 
         // hole for magnet
+        color(col_base)
         translate([inner_x/2,
             (w_bot-magnet_height)/2,
             (inner_z)/2
         ])
         magnet();
-        
-        color(col_logo)
+
+        color(col_light)
         if(title_enable)
         {
             // title - line 1 : mana symbols
@@ -495,30 +511,30 @@ module inner()
             linear_extrude(engrave + engrave_eps)
             text(title2_text, size=title2_size, halign="center", valign="top", font=title2_font);
         }
-        
+
         // sideholes
-        color(col_light)
+        color(col_base)
         translate([-eps, 0, eps])
         insidecoche(inner_y-w_bot-w_top, w_side+2*eps);
 
-        color(col_light)
+        color(col_base)
         if(!no_reserve)
             translate([cardsh1+w_side-eps, 0, eps])
             insidecoche(inner_y-w_bot-w_top, w_side+2*eps);
 
-        color(col_light)
+        color(col_base)
         translate([
             (no_reserve?card_x+w_side:cardsh+w_side+cardsh1+w_side)-eps,
             0,
             eps
         ])
         insidecoche(inner_y-w_bot-w_top, w_side+2*eps);
-        
+
     }
 
-    color(col_light)
     difference()
     {
+        color(col_light)
         union()
         {
             coche(inner_z, 0, true);
@@ -526,25 +542,25 @@ module inner()
             translate([inner_x + w_side + margin_xy, 0, 0])
             coche(inner_z, 0, true);
         }
-        
+
+        color(col_base)
         if(texture_enable)
         {
             // left surface
             translate([
-                -(w_side - engrave) - margin_xy - engrave_eps,
+                -(w_side - .5*engrave) - margin_xy - engrave_eps,
                 -(outer_y - inner_y),
                 -0.5*(outer_z - inner_z)
             ])
-    
             translate([0, 0, outer_z])
             rotate([180, 0, 0])
             rotate([0, -90, 180])
             resize([outer_z, outer_y, engrave])
             surface(texture_left, invert=true);
-            
+
             // right surface
             translate([
-                inner_x + engrave + margin_xy + engrave_eps,
+                inner_x + 1.5*engrave + margin_xy + engrave_eps,
                 -(outer_y - inner_y),
                 -0.5*(outer_z - inner_z)
             ])
@@ -563,19 +579,50 @@ module inner()
 // =========================================================== //
 module outer()
 {
-    
-    color(col_base)
+
+//    color(col_base)
     difference()
     {
         // base outer box
-        cube([
-            outer_x,
-            outer_y,
-            outer_z
-        ]);
+//        color(col_base)
+//        cube([
+//            outer_x,
+//            outer_y,
+//            outer_z
+//        ]);
+        union()
+        {
+            difference()
+            {
+                color(col_light)
+                cube([
+                    outer_x,
+                    outer_y,
+                    outer_z
+                ]);
+
+                color(col_base)
+                translate([engrave, -eps, engrave])
+                cube([
+                    outer_x - 2*engrave,
+                    outer_y + 2*eps,
+                    outer_z - 2*engrave
+                ]);
+            }
+            
+            color(col_base)
+            translate([engrave, 0, engrave])
+            cube([
+                outer_x - 2*engrave,
+                outer_y,
+                outer_z - 2*engrave
+            ]);
+        }
+        
         
         if(debug_magnet)
         {
+            color(col_base)
             translate([-eps, -eps, debug_height])
             cube([
                 outer_x+2*eps,
@@ -583,9 +630,10 @@ module outer()
                 outer_z+2*eps
             ]);
         }
-        
+
 
         // hole for inner box
+        color(col_base)
         translate([w_side, w_bot, w_side])
         cube([
             outer_x - 2*w_side,
@@ -597,7 +645,8 @@ module outer()
         magzoffset = no_reserve ?
             (2*w_side + w_bot + cardsh)/2  + margin_xy :
             w_side + (card_x-w_side*.5)*.5 + margin_xy;
-        
+
+        color(col_base)
         translate([
             2 * w_side + (in_reserve ? (cardsh + cardsh1 + w_side)/2 : .5*card_x) + margin_xy,
             (w_bot-magnet_height)/2,
@@ -606,36 +655,39 @@ module outer()
         magnet();
 
 
+        color(col_base)
         translate([w_side+margin_xy, -topmargin+eps, w_side+margin_xy])
         coche(inner_z, topmargin, false);
 
+        color(col_base)
         translate([2*w_side+inner_x+3*margin_xy, -topmargin+eps, w_side+margin_xy])
         coche(inner_z, topmargin, false);
 
         // outer texture substraction
+        color(col_base)
         if(texture_enable && !debug_magnet)
         {
             // top surface
-            translate([outer_x-eps, -eps, outer_z - (engrave - engrave_eps)])
+            translate([outer_x-eps, -eps, outer_z - (.5*engrave - engrave_eps)])
             resize([outer_x+2*eps, outer_y+2*eps, engrave ])
             rotate([0, 180, 0])
             surface(texture_front, invert=true);
-            
+
             // bot surface
-            translate([-eps, -eps, engrave - engrave_eps])
+            translate([-eps, -eps, .5*engrave - engrave_eps])
             resize([outer_x+2*eps, outer_y+2*eps, engrave])
             rotate([0, 0, 0])
             surface(texture_back, invert=true);
 
             // left surface
-            translate([engrave - engrave_eps - eps, -eps, outer_z])
+            translate([.5*engrave, -eps, outer_z])
             rotate([180, 0, 0])
             rotate([0, -90, 180])
             resize([outer_z+2*eps, outer_y+2*eps, engrave])
             surface(texture_left, invert=true);
 
             // right surface
-            translate([outer_x - engrave + engrave_eps - eps, -eps, 0])
+            translate([outer_x - .5*engrave - eps, -eps, 0])
             rotate([0, -90, 0])
             resize([outer_z+2*eps, outer_y+2*eps, engrave])
             surface(texture_right, invert=true);
@@ -643,15 +695,16 @@ module outer()
         }
 
         // hole for logo
+        color(col_base)
         logo(true);
     };
-    
+
     if(!debug_magnet)
-        color(col_logo)
+        color(col_light)
         logo(false);
-    
+
  }
- 
+
 // =========================================================== //
 // output
 // =========================================================== //
@@ -672,7 +725,7 @@ if(OBJ == "display" && logo_mode == "surface")
 else if(OBJ == undef || OBJ == "all")
     outer();
 
-    
+
 if(OBJ == "display")
 {
     translate([0,0,0])
@@ -683,4 +736,3 @@ if(OBJ == "display")
     rotate([90,0,0])
     outer();
 }
-

@@ -1,0 +1,23 @@
+{
+    "box_type": "cmdr",
+
+    "texture_enable": true,
+    "texture_front": "front.png",
+    "texture_back": "back.png",
+    "texture_left": "lr.png",
+    "texture_right": "lr.png",
+
+    "title1_text": "",
+    "title1_size": 12,
+    "title1_offset": [0, 4],
+    "title2_text": "",
+    "title2_size": 10,
+    "title2_offset": [0, 0],
+    "title_2lines": true,
+
+    "logo_mode": "",
+
+    "col_base": "#ccbbcc",
+    "col_light": "#ccbbcc",
+    "col_logo": "#998899"
+}

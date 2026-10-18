@@ -1,0 +1,25 @@
+{
+    "box_type": "cmdr",
+
+    "texture_enable": true,
+    "texture_front": "loot-f.png",
+    "texture_back": "loot-b.png",
+    "texture_left": "loot-r.png",
+    "texture_right": "loot-l.png",
+
+    "title1_text": "Loot",
+    "title1_size": 12,
+    "title1_offset": [0, 4],
+    "title1_font": "Matrix:style=Bold",
+    "title2_text": "The GOAT",
+    "title2_size": 10,
+    "title2_offset": [0, 0],
+    "title_2lines": true,
+    "title2_font": "Matrix:style=Bold",
+
+    "logo_mode": "",
+
+    "col_base": "#5f9c4b",
+    "col_light": "#8fe075",
+    "col_logo": "#8fe075"
+}

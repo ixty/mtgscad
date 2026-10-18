@@ -1,0 +1,24 @@
+{
+    "box_type":         "cmdr",
+
+    "texture_enable":   true,
+    "texture_front":    "txf.png",
+    "texture_back":     "txb.png",
+    "texture_left":     "txl.png",
+    "texture_right":    "txr.png",
+
+    "title1_text":      "\\ue9d7",
+    "title1_size":      45,
+    "title1_offset":    [0, 8],
+    "title2_text":      "Master of Keys",
+    "title1_font":      "Keyrune",
+    "title2_size":      10,
+    "title_2lines":     false,
+
+    "logo_mode":        "",
+
+    "col_base":         "#ccbbcc",
+    "col_light":        "#ccbbcc",
+    "col_logo":         "#998899"
+
+}

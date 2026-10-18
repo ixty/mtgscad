@@ -1,0 +1,21 @@
+{
+    "box_type":         "cmdr",
+
+    "texture_front":    "txf.png",
+    "texture_back":     "tx1.png",
+    "texture_left":     "txr.png",
+    "texture_right":    "txl.png",
+
+    "title1_text":      "\\ue000\\ue002\\ue003",
+    "title2_text":      "Kaalia",
+    "title1_size":      10,
+    "title2_size":      8,
+    "title1_offset":    [0, 4],
+
+    "logo_mode":        "",
+
+    "col_base":         "#ccbbcc",
+    "col_light":        "#ccbbcc",
+    "col_logo":         "#998899"
+
+}

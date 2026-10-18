@@ -1,0 +1,24 @@
+{
+    "box_type":         "cmdr",
+
+    "texture_enable":   true,
+    "texture_front":    "txf1.png",
+    "texture_back":     "txb1.png",
+    "texture_left":     "txb1.png",
+    "texture_right":    "txb1.png",
+
+    "title1_text":      "\\ue004",
+    "title1_size":      14,
+    "title1_offset":    [0, 8],
+    "title2_text":      "Hydraz !",
+    "title2_size":      8,
+    "title2_offset":    [0, -2],
+    "title_2lines":     true,
+
+    "logo_mode":        "",
+
+    "col_base":         "#ccbbcc",
+    "col_light":        "#ccbbcc",
+    "col_logo":         "#998899"
+
+}
